@@ -3,6 +3,7 @@
     top: 0 ;
     /* to display the items inline */
     display: flex;
+    background-color: white;
     justify-content: space-evenly;
     border-bottom: 0.1px solid lightgray;
     padding: 10px 10px ;

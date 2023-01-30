@@ -3,10 +3,10 @@ import "./Login.css"
 
 function Login() {
 
-    const signin = () =>{
+    const signin = (e) =>{
         e.preventDefalut()
     }
-    const register = () =>{
+    const register = (e) =>{
         e.preventDefalut()
     }
   return (

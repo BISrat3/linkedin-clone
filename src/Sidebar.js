@@ -4,7 +4,7 @@ import './Sidebar.css'
 
 function Sidebar() {
 
-    const recentItem =(topic) => {
+    const recentItem = (topic) =>{
         <div className="sidebar__recentItem">
             <span className='sidebar__hash'>#</span>
             <p>{topic}</p>
@@ -14,7 +14,8 @@ function Sidebar() {
   return (
     <div className="sidebar">
         <div class="sidebar__top">
-            <img src="https://image.shutterstock.com/image-vector/abstract-waving-particle-technology-background-260nw-2128959116.jpg" alt=""/>
+            <img 
+                src="https://image.shutterstock.com/image-vector/abstract-waving-particle-technology-background-260nw-2128959116.jpg" alt=""/>
             <Avatar 
                 className="sidebar__avatar"
             />

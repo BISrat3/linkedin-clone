@@ -1,13 +1,13 @@
 import React, {useEffect} from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import './App.css';
-import {selectUser, login, logout} from '../src/features/userSlice'
+import {selectUser, login, logout} from './features/userSlice'
 import Feed from './Feed';
 import { auth } from './firebase';
 import Header from './Header';
 import Login from './Login';
 import Sidebar from './Sidebar';
-import { Widgets } from '@mui/icons-material';
+import Widgets  from './Widgets';
 
 function App() {
   // pull the user from the data store
@@ -37,11 +37,13 @@ function App() {
     <div className="app">
       <Header />
       {/* if their is a user render login page other wise logout */}
-      {!user ? ( <Login />) :(
+      {!user ? ( 
+        <Login />
+        ) :(
         <div class="app__body">
         {/* App Body */}
         {/* Widgets on the right */}
-        <Widgets />
+          <Widgets />
         {/* Sidebar */}
           <Sidebar />
         {/* Feed */}

@@ -34,7 +34,7 @@
     font-weight: 600;
 }
 
-.feed__input >form > button {
+.feed__input > form > button {
     display: none;
 }
 

@@ -8,12 +8,12 @@ function Sidebar() {
     const user = useSelector(selectUser)
     console.log(user)
 
-    const recentItem = (topic) =>{
+    const recentItem = (topic) => (
         <div className="sidebar__recentItem">
             <span className='sidebar__hash'>#</span>
             <p>{topic}</p>
         </div>
-    }
+    )
 
   return (
     <div className="sidebar">
@@ -42,7 +42,7 @@ function Sidebar() {
             </p>
             </div>
         </div>
-        
+
         <div class="sidebar__bottom">
             <p>Recent</p>
             {recentItem('reactjs')}

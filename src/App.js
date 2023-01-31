@@ -11,8 +11,8 @@ import Widgets  from './Widgets';
 
 function App() {
   // pull the user from the data store
-  const user = useSelector(selectUser)
   const dispatch = useDispatch()
+  const user = useSelector(selectUser)
 
   // when the app component loads we fire off a pieace of code
   useEffect(() => {
@@ -39,7 +39,7 @@ function App() {
       {/* if their is a user render login page other wise logout */}
       {!user ? ( 
         <Login />
-        ) :(
+        ) : (
         <div class="app__body">
         {/* App Body */}
         {/* Widgets on the right */}

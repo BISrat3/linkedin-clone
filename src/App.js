@@ -7,6 +7,7 @@ import { auth } from './firebase';
 import Header from './Header';
 import Login from './Login';
 import Sidebar from './Sidebar';
+import { Widgets } from '@mui/icons-material';
 
 function App() {
   // pull the user from the data store
@@ -40,7 +41,7 @@ function App() {
         <div class="app__body">
         {/* App Body */}
         {/* Widgets on the right */}
-
+        <Widgets />
         {/* Sidebar */}
           <Sidebar />
         {/* Feed */}

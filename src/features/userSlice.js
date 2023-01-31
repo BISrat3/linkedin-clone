@@ -13,7 +13,7 @@ export const userSlice = createSlice({
       // which detects changes to a "draft state" and produces a brand new
       // immutable state based off those changes
       // payload is an object we passed along with it
-      state.value = action.payload
+      state.user = action.payload
     },
     // Use the PayloadAction type to declare the contents of `action.payload`
     logout: (state) => {

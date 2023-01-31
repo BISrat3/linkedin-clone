@@ -18,4 +18,31 @@
     display: flex;
     flex-direction: column;
 }
-/* .login__register */
+
+.login > form > input {
+    width: 350px;
+    height: 50px;
+    font-size: 20px;
+    padding-left: 10px;
+    margin-bottom: 10px;
+    border-radius:5px;
+}
+
+.login > form > button {
+    margin-bottom: 10px;
+    padding: 10px;
+    width: 365px;
+    height: 50px;
+    font-size: large;
+    background-color: #0074b1;
+    border-radius: 5px;
+}
+
+.login__register {
+    color:#0074b1;
+    cursor: pointer;
+}
+
+.login > p {
+    margin-top: 20px;
+}

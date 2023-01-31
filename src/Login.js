@@ -11,12 +11,24 @@ function Login() {
     const [profile, setProfile] = useState('')
     const dispatch = useDispatch()
 
-    const signin = (e) =>{
+    const loginToApp = (e) =>{
         e.preventDefalut()
 
-
+        auth.signInWithEmailAndPassword(email, password)
+        .then((userAuth) => {
+            dispatch(
+                login({
+                email: userAuth.user.email,
+                uid: userAuth.user.uid,
+                displayName: userAuth.user.displayName,
+                profileUrl: userAuth.user.photoURL,
+            }))
+        }).catch((error) =>{
+            alert(error)
+        })
     }
-    const register = (e) =>{
+
+    const register = () =>{
         // if there you didn't put full name return ...
         if(!name){
             return alert("Please enter a full name")
@@ -75,7 +87,7 @@ function Login() {
 
             <button 
                 type='submit' 
-                onClick={signin}> Sign In
+                onClick={loginToApp}> Sign In
             </button>
         </form>
         <p>

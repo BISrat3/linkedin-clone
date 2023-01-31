@@ -7,7 +7,7 @@ function HeaderOption({Icon, avatar, title, onClick}) {
   return (
     <div  
       onClick ={onClick} 
-      class="headerOption">
+      className="headerOption">
         {/* if i pass an Icon should i render the icon component   */}
         {Icon && <Icon className='headerOption__icon'/>}
         {/* if it is avatar then render the component below */}

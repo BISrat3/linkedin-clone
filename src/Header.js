@@ -15,8 +15,9 @@ function Header() {
   const dispatch = useDispatch()
   
   const logoutOfApp = () => {
+    // tell redux to logout
     dispatch(logout())
-    auth.signout()
+    auth.signOut()
   }
   return (
     <div className='header'>

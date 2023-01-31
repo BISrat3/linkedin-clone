@@ -5,10 +5,8 @@ import Sidebar from './Sidebar';
 import Feed from './Feed';
 import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
-import {selectUser} from '../src/features/userSlice'
+import {selectUser, login, logout} from '../src/features/userSlice'
 import { auth } from './firebase';
-import {logout } from "./features/userSlice"
-import {login } from "./features/userSlice"
 
 function App() {
   // pull the user from the data store
@@ -24,7 +22,7 @@ function App() {
         dispatch(login({
           email: userAuth.email,
           uid: userAuth.uid,
-          displayName: userAuth.name,
+          displayName: userAuth.displayName,
           photoUrl: userAuth.photoURL,
         }))
       } else {

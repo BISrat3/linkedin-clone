@@ -1,12 +1,12 @@
 import React, {useEffect} from 'react';
-import './App.css';
-import Header from './Header';
-import Sidebar from './Sidebar';
-import Feed from './Feed';
-import Login from './Login';
 import { useDispatch, useSelector } from 'react-redux';
+import './App.css';
 import {selectUser, login, logout} from '../src/features/userSlice'
+import Feed from './Feed';
 import { auth } from './firebase';
+import Header from './Header';
+import Login from './Login';
+import Sidebar from './Sidebar';
 
 function App() {
   // pull the user from the data store
@@ -39,7 +39,8 @@ function App() {
       {!user ? ( <Login />) :(
         <div class="app__body">
         {/* App Body */}
-        {/* Widgets */}
+        {/* Widgets on the right */}
+
         {/* Sidebar */}
           <Sidebar />
         {/* Feed */}

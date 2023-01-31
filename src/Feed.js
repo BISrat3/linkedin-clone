@@ -36,6 +36,7 @@ function Feed() {
     const sendPost = (e) => {
         // it preventing refreshing behaviour 
         e.preventDefault()
+        
         db.collection('posts').add({
             name: user.displayName,
             description: user.email,

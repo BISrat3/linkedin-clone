@@ -1,4 +1,4 @@
-import { SendOutlined, ShareOutlined, ThumbUpAltOutlined } from '@mui/icons-material'
+import { SendOutlined, ShareOutlined, ThumbUpAltOutlined } from '@mui/icons-material' 
 import { Avatar } from '@mui/material'
 import React from 'react'
 import "./Post.css"
@@ -18,6 +18,7 @@ function Post({name, description, message, photoUrl}) {
                 <p>{description}</p>
             </div>
         </div>
+        
         <div class="post__body">
             <p>{message}</p>
         </div>

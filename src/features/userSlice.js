@@ -29,6 +29,6 @@ export const { login, logout } = userSlice.actions;
 // in the slice file. For example: `useSelector((state: RootState) => state.counter.value)`
 // pull data from the user slice
 // Select is used to pull data
-export const selectUser = (state) => state.user.value;
+export const selectUser = (state) => state.user.user;
 
 export default userSlice.reducer;

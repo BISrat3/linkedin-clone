@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./Login.css";
 import { useDispatch } from "react-redux";
-import { login } from "./features/userSlice";
+import { login } from "./features/userSlice"
 import { auth } from "./firebase";
 
 function Login() {
@@ -11,11 +11,10 @@ function Login() {
   const [profile, setProfile] = useState("");
   const dispatch = useDispatch();
 
-  const loginHandler = async (e) => {
+  const loginHandler = (e) => {
     e.preventDefault();
-    try {
-      const userAuth = await auth.signInWithEmailAndPassword(email, password);
-
+    auth.signInWithEmailAndPassword(email, password)
+    .then((userAuth) => {
       dispatch(
         login({
           email: userAuth.user.email,
@@ -24,61 +23,56 @@ function Login() {
           profileUrl: userAuth.user.photoURL,
         })
       );
-    } catch (error) {
-      alert(error);
-    }
-  };
+    })
+    .catch((error) => alert(error));
+};
 
-  const register = async () => {
-    if (!name) {
-      return alert("Please enter a full name!");
-    }
-    try {
-      const userAuth = await auth.createUserWithEmailAndPassword(
-        email,
-        password
-      );
-
-      await userAuth.user.updateProfile({
-        displayName: name,
-        photoUrl: profile,
+const register = () => {
+  // if there is  name you didn't put full name return ...
+  if (!name) {
+    return alert("Please enter a full name");
+  }
+  // if is used to create user with email and password
+  auth.createUserWithEmailAndPassword(email, password)
+  .then((userAuth) => {
+    // once we get the user it allow user we can update profile
+        userAuth.user.updateProfile({
+            displayName: name,
+            photoURL: profile,
+      })
+      .then(() => {
+        // push the user into the store use dispatch login action - redux
+        dispatch(login({
+            email: userAuth.user.email,
+            uid: userAuth.user.uid,
+            displayName: name,
+            photoUrl: profile,
+          })
+        );
       });
+    })
+    .catch((error) => alert(error));
+};
 
-      dispatch(
-        login({
-          email: userAuth.user.email,
-          uid: userAuth.user.uid,
-          displayName: name,
-          photoUrl: profile,
-        })
-      );
-    } catch (error) {
-      console.log(error);
-      alert(error);
-    }
-  };
-  return (
-    <div className="login">
-      <img
-        src="https://brand.linkedin.com/content/dam/brand/site/img/logo/logo-hero.png"
-        alt="LinkedIn Logo"
-      />
-
-      <form>
+return (
+  <div className="login">
+    <img
+      src="https://brand.linkedin.com/content/dam/brand/site/img/logo/logo-hero.png"
+      alt=""
+    />
+    <form>
         <input
           type="text"
           placeholder="Full name (required if registering)"
           value={name}
           onChange={(e) => setName(e.target.value)}
         />
-
         <input
           type="text"
           placeholder="Profile pic URL (optional)"
           value={profile}
           onChange={(e) => setProfile(e.target.value)}
         />
-
         <input
           type="email"
           placeholder="Email"
@@ -92,18 +86,17 @@ function Login() {
           value={password}
           onChange={(e) => setPassword(e.target.value)}
         />
-
-        <button 
-          type="submit" 
-          onClick={loginHandler}>
-            Sign In
-        </button>
-      </form>
-      <p>
-        Not a member?{" "}
-        <span className="login__register" onClick={register}>
-          Register Now
-        </span>
+      <button 
+        type="submit" 
+        onClick={loginHandler}>
+          Sign In
+      </button>
+    </form>
+    <p>
+      Not a member?{" "}
+      <span className="login__register" onClick={register}>
+        Register Now
+      </span>
       </p>
     </div>
   );
